@@ -20,13 +20,13 @@ namespace Miscelanea.Helpers
             if (smethod == "POST")
             {
                 //POST
-                request.ContentLength = sdata.Length;
-
                 using (Stream webStream = request.GetRequestStream())
-                using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.ASCII))
+                using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.UTF8))
                 {
                     requestWriter.Write(sdata);
                 }
+
+                //request.ContentLength = sdata.Length;
             }
 
             try

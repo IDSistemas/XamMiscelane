@@ -16,5 +16,20 @@ namespace Miscelanea.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void BtnLogin_Clicked(object sender, EventArgs e)
+        {
+            Models.UserModels.Dato _Dato = new Models.UserModels.Dato() { sNombreUsuario=User.Text.Trim(), sContraseña=Password.Text.Trim() };
+            Models.UserModels.LoginRequest _request = new Models.UserModels.LoginRequest() { EnumFiltro=3, sAutorizacion="ShopCommerce Xamarin", Dato= _Dato };
+
+            string _response = "";
+            string _error = "";
+
+            Helpers.HttpHelper.GenericHttpRequest("POST", "http://machsolutions.azurewebsites.net/WCFUsuarioREST.svc/json/GetItemUsuario", Newtonsoft.Json.JsonConvert.SerializeObject(_request), ref _response, ref _error);
+
+            var _anonimo = Newtonsoft.Json.JsonConvert.DeserializeObject(_response);
+
+            DisplayAlert("", "Login", "OK");
+        }
+    }
 }

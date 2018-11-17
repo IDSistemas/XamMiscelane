@@ -19,7 +19,7 @@ namespace Miscelanea.Droid
         {
 
             base.OnCreate(savedInstanceState);
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(1);
             StartActivity(typeof(MainActivity));
             // Create your application here
         }

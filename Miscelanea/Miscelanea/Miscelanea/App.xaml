@@ -4,7 +4,7 @@
              x:Class="Miscelanea.App">
     <Application.Resources>
 
-        <ResourceDictionary Source="Styles/DarkTheme.xaml">
+        <ResourceDictionary Source="Styles/LightTheme.xaml">
             <!--<ResourceDictionary MergedWith="Styles/LightTheme.xaml"></ResourceDictionary>-->
         </ResourceDictionary>
     </Application.Resources>

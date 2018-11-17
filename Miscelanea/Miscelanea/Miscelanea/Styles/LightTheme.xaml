@@ -16,7 +16,7 @@
     <Style TargetType="Entry">
         <Setter Property="BackgroundColor" Value="White"/>
         <Setter Property="TextColor" Value="Black"/>
-        <Setter Property="PlaceholderColor" Value="Black"/>
+        <Setter Property="PlaceholderColor" Value="Gainsboro"/>
     </Style>
 
     <Style TargetType="ListView">

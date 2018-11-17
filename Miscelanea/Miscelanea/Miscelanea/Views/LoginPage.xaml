@@ -7,7 +7,9 @@
             <Label Text="Login"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button Text="Ingresar"></Button>
+            <Entry x:Name="User" Placeholder="Usuario"></Entry>
+            <Entry x:Name="Password" Placeholder="Contraseña"></Entry>
+            <Button x:Name="BtnLogin" Text="Ingresar" Clicked="BtnLogin_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
