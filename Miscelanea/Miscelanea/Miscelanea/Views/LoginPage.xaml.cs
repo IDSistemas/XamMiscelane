@@ -19,7 +19,7 @@ namespace Miscelanea.Views
 
         private void BtnLogin_Clicked(object sender, EventArgs e)
         {
-            Models.UserModels.Dato _Dato = new Models.UserModels.Dato() { sNombreUsuario=User.Text.Trim(), sContraseña=Password.Text.Trim() };
+            Models.UserModels.Dato _Dato = new Models.UserModels.Dato() { sNombreUsuario=User.Text.Trim(), sContrasena=Password.Text.Trim() };
             Models.UserModels.LoginRequest _request = new Models.UserModels.LoginRequest() { EnumFiltro=3, sAutorizacion="ShopCommerce Xamarin", Dato= _Dato };
 
             string _response = "";
@@ -27,9 +27,18 @@ namespace Miscelanea.Views
 
             Helpers.HttpHelper.GenericHttpRequest("POST", "http://machsolutions.azurewebsites.net/WCFUsuarioREST.svc/json/GetItemUsuario", Newtonsoft.Json.JsonConvert.SerializeObject(_request), ref _response, ref _error);
 
-            var _anonimo = Newtonsoft.Json.JsonConvert.DeserializeObject(_response);
+            Models.UserModels.LoginResponse _responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.UserModels.LoginResponse>(_response);
 
-            DisplayAlert("", "Login", "OK");
+            if (_responseObject != null)
+            {
+                DisplayAlert("", _responseObject.nIdPersona.ToString(), "OK");
+            }
+            else
+            {
+                DisplayAlert("", "El usuario no existe", "Ok");
+            }
+
+            
         }
     }
 }
