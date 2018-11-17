@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Miscelanea.Views.Pagina1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Pagina 1"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="btnUno" Text="Boton 1" Clicked="btnUno_Clicked"></Button>
+            <Button x:Name="btnDos" Text="Boton 2" Clicked="btnDos_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

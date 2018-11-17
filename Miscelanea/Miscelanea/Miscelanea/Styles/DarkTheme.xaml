@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Style TargetType="Label">
+        <Setter Property="BackgroundColor" Value="Black"/>
+        <Setter Property="TextColor" Value="LightCyan"/>
+    </Style>
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Black"/>
+        <Setter Property="TextColor" Value="LightCyan"/>
+        <Setter Property="BorderColor" Value="LightCyan"/>
+        <Setter Property="BorderWidth" Value="2"/>
+        <Setter Property="BorderRadius" Value="15"/>
+    </Style>
+    <Style TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="Black"/>
+        <Setter Property="TextColor" Value="LightCyan"/>
+        <Setter Property="PlaceholderColor" Value="LightCyan"/>
+    </Style>
+
+    <Style TargetType="ListView">
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="Imagen"></Label>
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="{Binding}" />
+                                    <Label Text="Precio"/>
+                                    <Label Text="Detalle"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Miscelanea.Views.ListaProductos">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width=".25"/>
+            </Grid.ColumnDefinitions>
+            <Entry x:Name="filtro" Grid.Column="0" Placeholder="Filtro"></Entry>
+            <Button x:Name="btnFiltro" Grid.Column="1" Text="Buscar"/>
+        </Grid>
+    <ListView Grid.Row="1" x:Name="MyListView" ItemTapped="Handle_ItemTapped" CachingStrategy="RecycleElement" Grid.Column="1">
+    </ListView>
+    </Grid>
+</ContentPage>
