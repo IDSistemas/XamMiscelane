@@ -20,8 +20,8 @@ namespace Miscelanea.Helpers
             if (smethod == "POST")
             {
                 //POST
+                //byte[] byteData = UTF8Encoding.UTF8.GetBytes(sdata);
                 request.ContentLength = sdata.Length;
-
                 using (Stream webStream = request.GetRequestStream())
                 using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.ASCII))
                 {

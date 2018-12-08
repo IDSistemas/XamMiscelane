@@ -4,18 +4,18 @@
              x:Class="Miscelanea.Views.ListaProductos">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height=".1"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width=".25"/>
+                <ColumnDefinition Width="75"/>
             </Grid.ColumnDefinitions>
-            <Entry x:Name="filtro" Grid.Column="0" Placeholder="Filtro"></Entry>
-            <Button x:Name="btnFiltro" Grid.Column="1" Text="Buscar"/>
+            <Entry x:Name="txtFiltro" Grid.Column="0" Placeholder="Filtro"></Entry>
+            <Button x:Name="btnFiltro" Grid.Column="1" Text="Buscar" Clicked="BtnFiltro_ClickedAsync"/>
         </Grid>
-    <ListView Grid.Row="1" x:Name="MyListView" ItemTapped="Handle_ItemTapped" CachingStrategy="RecycleElement" Grid.Column="1">
+    <ListView Grid.Row="1" x:Name="MyListView" ItemTapped="Handle_ItemTapped" CachingStrategy="RecycleElement">
     </ListView>
     </Grid>
 </ContentPage>

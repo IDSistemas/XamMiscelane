@@ -24,20 +24,23 @@
             <Setter.Value>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Text="Imagen"></Label>
-                                <StackLayout Grid.Column="1">
-                                    <Label Text="{Binding}" />
-                                    <Label Text="Precio"/>
-                                    <Label Text="Detalle"/>
-                                </StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding ImagenSource}" Aspect="AspectFill"></Image>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding sNombreProducto}" Grid.Row="0" />
+                                <Label Text="{Binding nPrecio}" Grid.Row="1" />
+                                <Label Text="{Binding sDescripcion}" Grid.Row="2" />
                             </Grid>
-                        </StackLayout>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </Setter.Value>

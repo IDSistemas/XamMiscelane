@@ -14,7 +14,7 @@ namespace Miscelanea
             InitializeComponent();
 
 
-            MainPage = new ListaProductos();
+            MainPage = new OtherPage();
         }
 
         protected override void OnStart()
