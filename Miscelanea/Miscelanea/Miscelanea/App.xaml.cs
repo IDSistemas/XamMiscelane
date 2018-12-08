@@ -13,8 +13,7 @@ namespace Miscelanea
         {
             InitializeComponent();
 
-
-            MainPage = new OtherPage();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

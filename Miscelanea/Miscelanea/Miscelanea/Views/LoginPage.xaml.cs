@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Miscelanea.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Miscelanea.Helpers;
-using Newtonsoft.Json;
 
 namespace Miscelanea.Views
 {
@@ -20,59 +17,28 @@ namespace Miscelanea.Views
 			InitializeComponent ();
 		}
 
-        private void btnLogin_Clicked(object sender, EventArgs e)
+        private void BtnLogin_Clicked(object sender, EventArgs e)
         {
-            Usuario loginModel = new Usuario
+            Models.UserModels.Dato _Dato = new Models.UserModels.Dato() { sNombreUsuario=User.Text.Trim(), sContrasena=Password.Text.Trim() };
+            Models.UserModels.LoginRequest _request = new Models.UserModels.LoginRequest() { EnumFiltro=3, sAutorizacion="ShopCommerce Xamarin", Dato= _Dato };
+
+            string _response = "";
+            string _error = "";
+
+            Helpers.HttpHelper.GenericHttpRequest("POST", "http://machsolutions.azurewebsites.net/WCFUsuarioREST.svc/json/GetItemUsuario", Newtonsoft.Json.JsonConvert.SerializeObject(_request), ref _response, ref _error);
+
+            Models.UserModels.LoginResponse _responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.UserModels.LoginResponse>(_response);
+
+            if (_responseObject != null)
             {
-                sNombreUsuario = txtUsuario.Text.Trim(),
-                sContrasena = txtContrasena.Text.Trim()
-            };
-
-            RequestREST<Usuario> requestObject = new RequestREST<Usuario>()
-            {
-                Dato = loginModel,
-                EnumFiltro=3,
-                sAutorizacion = "ShopCommerce Xamarin"
-            };
-            string sRequest = JsonConvert.SerializeObject(requestObject, Formatting.None);
-            string sResponse = string.Empty;
-            string sError = string.Empty;
-            HttpHelper.GenericHttpRequest("POST", "http://machsolutions.azurewebsites.net/WCFUsuarioREST.svc/json/GetItemUsuario", sRequest, ref sResponse, ref sError);
-
-            Usuario usuario = JsonConvert.DeserializeObject<Usuario>(sResponse);
-
-            if (usuario != null)
-            {
-                Persona p = new Persona()
-                {
-                    nIdPersona = usuario.nIdPersona.GetValueOrDefault(0)
-                };
-
-                RequestREST<Persona> requestREST = new RequestREST<Persona>();
-                requestREST.EnumFiltro = 1;
-                requestREST.Dato = p;
-                requestREST.sAutorizacion = "ShopCommerce Xamarin";
-
-                sRequest = JsonConvert.SerializeObject(requestREST);
-                sResponse = string.Empty;
-                sError = string.Empty;
-                HttpHelper.GenericHttpRequest("POST", "http://machsolutions.azurewebsites.net/WCFUsuarioREST.svc/json/GetItemPersona", sRequest, ref sResponse, ref sError);
-                p = JsonConvert.DeserializeObject<Persona>(sResponse);
-                if (p != null)
-                {
-                    DisplayAlert("Login", $"Usuario valido: {p.sCorreoElectronico}", "Aceptar");
-                }
-                else
-                {
-                    DisplayAlert("Login", "Persona Invalida", "Aceptar");
-                }
+                DisplayAlert("", _responseObject.nIdPersona.ToString(), "OK");
             }
             else
             {
-                DisplayAlert("Login", "Usuario Invalido", "Aceptar");
+                DisplayAlert("", "El usuario no existe", "Ok");
             }
-            
 
+            
         }
     }
 }
