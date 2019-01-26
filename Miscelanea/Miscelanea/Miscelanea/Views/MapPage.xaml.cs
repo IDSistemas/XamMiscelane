@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms.Maps;
+using Xamarin.Essentials;
 
 namespace Miscelanea.Views
 {
@@ -26,6 +27,20 @@ namespace Miscelanea.Views
             //StackLayout stack = new StackLayout { Spacing = 0 };
             //stack.Children.Add(map);
             //Content = stack;
+            
         }
-	}
+
+        private async void BtnAddPosition_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var location = await Geolocation.GetLastKnownLocationAsync();
+                MyMap.Pins.Add(new Pin() { Position = new Position(location.Latitude, location.Longitude), Label = "Aqui estoy" });
+            }
+            catch(Exception err)
+            {
+                await DisplayAlert("Error", err.Message, "Aceptar");
+            }
+        }
+    }
 }

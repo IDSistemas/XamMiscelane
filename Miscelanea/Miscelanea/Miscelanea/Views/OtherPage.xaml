@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Miscelanea.Views.OtherPage">
+             x:Class="Miscelanea.Views.OtherPage"
+             xmlns:cc="clr-namespace:Miscelanea.CustomControls">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="txt1"></Entry>
-            <Entry x:Name="txt2"></Entry>
+        <StackLayout Padding="10">
+
+            <cc:CustomEntry IsCurvedCornersEnabled="True" x:Name="txt1" CornerRadius="16" BorderColor="Gray" BorderWidth="2" Image="users" HorizontalOptions="FillAndExpand"></cc:CustomEntry>
+            
+            <cc:CustomEntry IsCurvedCornersEnabled="True" x:Name="txt2" CornerRadius="16" BorderColor="Gray" BorderWidth="2" Image="users" HorizontalOptions="FillAndExpand"></cc:CustomEntry>
+            
             <Button x:Name="btn1" Text="Boton 1" Clicked="Btn1_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>

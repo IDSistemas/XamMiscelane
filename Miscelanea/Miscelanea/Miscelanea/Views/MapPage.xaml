@@ -6,6 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <maps:Map VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" x:Name="MyMap" IsShowingUser="true" MapType="Hybrid" />
+            <Button x:Name="btnAddPosition" Text="Agregar mi posicion" Clicked="BtnAddPosition_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
