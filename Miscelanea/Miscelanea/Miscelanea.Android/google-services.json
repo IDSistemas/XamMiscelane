@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1041669765767",
+    "firebase_url": "https://xamtest-88e27.firebaseio.com",
+    "project_id": "xamtest-88e27",
+    "storage_bucket": "xamtest-88e27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041669765767:android:5e425244d058a9fc",
+        "android_client_info": {
+          "package_name": "com.xamarin.miscelanea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041669765767-f4egqen1q1v1rg5hl94jbvo38nfbb5nl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAssFhxqBBTqf_NucTl54KT3Dok_pULvqQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
